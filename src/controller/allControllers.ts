@@ -470,7 +470,7 @@ export async function getAllAppointments(fastify: FastifyInstance) {
 export async function updateAppointmentStatus(fastify: FastifyInstance) {
   fastify.put("/", async function (_request: any, reply: FastifyReply) {
     const { appointmentId, status } = _request.body;
-    console.log("request.body", _request.body);
+  
     const appointmentDocs = doc(appointmentsCol, appointmentId);
     try {
       await updateDoc(appointmentDocs, { status });
